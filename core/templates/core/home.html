@@ -1,0 +1,332 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Computer Science & Engineering | Mewar University</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="{% url 'home' %}" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">
+            <strong>MEWAR UNIVERSITY</strong>
+            <small>Department of Computer Science & Engineering</small>
+        </span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="#about">About</a>
+        <a href="#programs">Courses</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#faculty">Faculty</a>
+        <a href="#notices">Notices</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+        <a href="{% url 'admin:index' %}">Admin</a>
+        <a href="{% url 'login' %}" class="nav-login">Student Login</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <span class="tag">ACADEMIC EXCELLENCE • INNOVATION • TECHNOLOGY</span>
+
+            <h1>Department of<br>
+                <span>Computer Science</span><br>
+                & Engineering
+            </h1>
+
+            <p>
+                Empowering future engineers through quality education,
+                practical learning, innovation and problem-solving.
+                Explore our department, faculty, academic activities
+                and the latest announcements.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#about" class="btn">Explore Department</a>
+                <a href="#notices" class="btn btn-outline">Latest Notices</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="code-card">
+                <div class="code-card-header">
+                    <span></span><span></span><span></span>
+                    <small>future_engineer.py</small>
+                </div>
+                <div class="code-content">
+                    <p><span class="code-purple">class</span> <span class="code-yellow">Engineer</span>:</p>
+                    <p class="indent"><span class="code-purple">def</span> learn(self):</p>
+                    <p class="indent2">skills = [</p>
+                    <p class="indent3">'Programming',</p>
+                    <p class="indent3">'Innovation',</p>
+                    <p class="indent3">'Problem Solving'</p>
+                    <p class="indent2">]</p>
+                    <p class="indent"><span class="code-purple">return</span> skills</p>
+                    <br>
+                    <p><span class="code-green"># Build the future.</span></p>
+                </div>
+                <div class="code-card-footer">Learning today. Leading tomorrow.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-item">
+            <strong>01</strong>
+            <span>Academic Learning</span>
+        </div>
+        <div class="stat-item">
+            <strong>02</strong>
+            <span>Practical Skills</span>
+        </div>
+        <div class="stat-item">
+            <strong>03</strong>
+            <span>Research & Innovation</span>
+        </div>
+        <div class="stat-item">
+            <strong>04</strong>
+            <span>Career Development</span>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="section-heading">
+            <span class="section-label">ABOUT OUR DEPARTMENT</span>
+            <h2>Building Knowledge.<br><span>Creating Possibilities.</span></h2>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    The Department of Computer Science & Engineering
+                    focuses on developing technical knowledge, analytical
+                    thinking and practical problem-solving skills among students.
+                </p>
+                <p>
+                    The department website provides a central place for
+                    students to explore faculty information, department
+                    notices, academic events and learning resources.
+                </p>
+
+                <div class="about-highlights">
+                    <div><span>✓</span> Technical Learning</div>
+                    <div><span>✓</span> Project-Based Education</div>
+                    <div><span>✓</span> Innovation & Collaboration</div>
+                    <div><span>✓</span> Student Development</div>
+                </div>
+            </div>
+
+            <div class="about-visual">
+                <div class="about-icon">⌘</div>
+                <h3>Computer Science & Engineering</h3>
+                <p>Learn • Build • Innovate</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="programs">
+        <div class="section-heading centered">
+           <span class="section-label">ACADEMIC PROGRAMS</span>
+<h2>Explore <span>Courses</span></h2>
+<p>Explore key learning areas in Computer Science & Engineering.</p>
+        </div>
+
+        <div class="card-grid">
+            <article class="info-card">
+                <div class="card-icon">01</div>
+                <h3>Programming</h3>
+                <p>Develop coding, logical thinking and problem-solving skills using programming languages.</p>
+            </article>
+
+            <article class="info-card">
+                <div class="card-icon">02</div>
+                <h3>Web Technologies</h3>
+                <p>Learn the fundamentals of website development, databases and web applications.</p>
+            </article>
+
+            <article class="info-card">
+                <div class="card-icon">03</div>
+                <h3>Artificial Intelligence</h3>
+                <p>Explore intelligent systems, machine learning concepts and data-driven solutions.</p>
+            </article>
+        </div>
+        <p class="section-note">
+            Note: Add the university's officially offered programs and approved course details before final submission.
+        </p>
+    </section>
+
+    <section class="section" id="facilities">
+        <div class="section-heading">
+            <span class="section-label">LEARNING ENVIRONMENT</span>
+            <h2>Department <span>Facilities</span></h2>
+        </div>
+
+        <div class="card-grid">
+            <article class="info-card facility-card">
+                <div class="card-icon">⌘</div>
+                <h3>Computer Laboratories</h3>
+                <p>Practical computer-based learning and programming practice.</p>
+            </article>
+
+            <article class="info-card facility-card">
+                <div class="card-icon">⌨</div>
+                <h3>Technical Projects</h3>
+                <p>Opportunities to apply classroom knowledge through software projects.</p>
+            </article>
+
+            <article class="info-card facility-card">
+                <div class="card-icon">◎</div>
+                <h3>Technical Activities</h3>
+                <p>A dedicated space to share academic announcements and technical events.</p>
+            </article>
+        </div>
+        <p class="section-note">
+            Update these facility descriptions according to the facilities actually available at your university.
+        </p>
+    </section>
+
+    <section class="section section-alt" id="faculty">
+        <div class="section-heading">
+            <span class="section-label">OUR PEOPLE</span>
+            <h2>Meet Our <span>Faculty</span></h2>
+            <p>Faculty information managed through the department administration panel.</p>
+        </div>
+
+        <div class="card-grid faculty-grid">
+            {% for teacher in faculty_members %}
+                <article class="info-card faculty-card">
+                    {% if teacher.photo %}
+                      <img src="{{ teacher.photo }}" alt="{{ teacher.name }}" class="faculty-photo">
+                    {% else %}
+                        <div class="faculty-placeholder">👤</div>
+                    {% endif %}
+
+                    <h3>{{ teacher.name }}</h3>
+                    <p class="faculty-designation">{{ teacher.designation }}</p>
+                    <p>{{ teacher.qualification }}</p>
+
+                    {% if teacher.email %}
+                        <a href="mailto:{{ teacher.email }}" class="faculty-email">{{ teacher.email }}</a>
+                    {% endif %}
+                </article>
+            {% empty %}
+                <div class="empty-state">
+                    <h3>Faculty information coming soon</h3>
+                    <p>Faculty records will appear here when added through the admin panel.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="section" id="notices">
+        <div class="section-heading">
+            <span class="section-label">STAY INFORMED</span>
+            <h2>Latest <span>Notices</span></h2>
+            <p>Department announcements and important updates.</p>
+        </div>
+
+        <div class="notice-list">
+            {% for notice in notices %}
+                <article class="notice-item">
+                    <div class="notice-date">
+                        <span>NOTICE</span>
+                        <small>{{ notice.created_at|date:"d M Y" }}</small>
+                    </div>
+                    <div class="notice-content">
+                        <h3>{{ notice.title }}</h3>
+                        <p>{{ notice.description|linebreaksbr }}</p>
+                    </div>
+                </article>
+            {% empty %}
+                <div class="empty-state">
+                    <h3>No notices available</h3>
+                    <p>New department notices will be displayed here.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="section section-alt" id="events">
+        <div class="section-heading">
+            <span class="section-label">CAMPUS LIFE</span>
+            <h2>Department <span>Events</span></h2>
+            <p>Workshops, seminars and other academic activities.</p>
+        </div>
+
+        <div class="card-grid">
+            {% for event in events %}
+                <article class="info-card event-card">
+                    <div class="event-date">
+                        <span>EVENT</span>
+                        <strong>{{ event.event_date|date:"d M Y" }}</strong>
+                    </div>
+                    <h3>{{ event.title }}</h3>
+                    <p>{{ event.description|linebreaksbr }}</p>
+                    {% if event.venue %}
+                        <p class="event-venue"><strong>Venue:</strong> {{ event.venue }}</p>
+                    {% endif %}
+                </article>
+            {% empty %}
+                <div class="empty-state">
+                    <h3>No events scheduled</h3>
+                    <p>Upcoming department events will appear here.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="portal" id="contact">
+        <div class="portal-content">
+            <span class="section-label">STUDENT RESOURCES</span>
+            <h2>Your Department.<br><span>Your Academic Journey.</span></h2>
+            <p>Access the student dashboard to view department notices and events.</p>
+            <a href="{% url 'login' %}" class="btn">Open Student Login</a>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <a href="{% url 'home' %}" class="logo footer-logo">
+                <span class="logo-mark">MU</span>
+                <span class="logo-text">
+                    <strong>MEWAR UNIVERSITY</strong>
+                    <small>Department of CSE</small>
+                </span>
+            </a>
+            <p>A departmental website for academic information, announcements and student resources.</p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="#about">About Department</a>
+           <a href="#programs">Courses</a>
+            <a href="#faculty">Faculty</a>
+            <a href="#notices">Notices</a>
+            <a href="#events">Events</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Student Portal</h3>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+            <a href="{% url 'admin:index' %}">Administration</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© {% now "Y" %} Department of Computer Science & Engineering. Academic information portal.</p>
+    </div>
+</footer>
+
+</body>
+</html>

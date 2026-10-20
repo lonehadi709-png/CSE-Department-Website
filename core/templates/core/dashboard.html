@@ -1,0 +1,394 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | Mewar University CSE</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f1f5f9;
+            color: #0f172a;
+            font-family: Arial, sans-serif;
+        }
+
+        .dashboard-container {
+            max-width: 1150px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .dashboard-navbar {
+            background: #0f172a;
+            color: white;
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .dashboard-brand {
+            color: white;
+            text-decoration: none;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .dashboard-brand span {
+            color: #fbbf24;
+        }
+
+        .dashboard-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .dashboard-nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .dashboard-nav a:hover {
+            color: #fbbf24;
+        }
+
+        .welcome-card {
+            background: linear-gradient(135deg, #0f172a, #1e3a5f);
+            color: white;
+            padding: 38px;
+            border-radius: 18px;
+            margin-bottom: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .welcome-label {
+            color: #fbbf24;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .welcome-card h1 {
+            margin: 12px 0;
+            font-size: clamp(25px, 4vw, 36px);
+        }
+
+        .welcome-card p {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .logout-button {
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .logout-button:hover {
+            background: #b91c1c;
+        }
+
+        .section-heading {
+            margin: 32px 0 18px;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 7px;
+            font-size: 25px;
+        }
+
+        .section-heading p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .dashboard-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 24px;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+        }
+
+        .dashboard-card h3 {
+            margin: 0 0 12px;
+            color: #0f172a;
+            font-size: 17px;
+        }
+
+        .dashboard-card p {
+            color: #64748b;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .card-icon {
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .dashboard-list {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .dashboard-item {
+            padding: 18px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .dashboard-item:last-child {
+            border-bottom: none;
+        }
+
+        .dashboard-item h3 {
+            margin: 0 0 8px;
+            font-size: 17px;
+            color: #0f172a;
+        }
+
+        .dashboard-item p {
+            color: #475569;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
+        .item-date {
+            display: inline-block;
+            color: #1d4ed8;
+            background: #eff6ff;
+            padding: 5px 9px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .empty-state {
+            padding: 20px 0;
+            color: #64748b;
+        }
+
+        .dashboard-footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 22px;
+            margin-top: 45px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 760px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-card {
+                padding: 25px;
+            }
+
+            .dashboard-navbar {
+                padding: 18px 20px;
+            }
+
+            .dashboard-nav {
+                gap: 14px;
+            }
+
+            .dashboard-container {
+                margin: 15px auto;
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="dashboard-navbar">
+    <a href="{% url 'home' %}" class="dashboard-brand">
+        MEWAR UNIVERSITY <span>| CSE</span>
+    </a>
+
+    <nav class="dashboard-nav">
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'profile' %}">My Profile</a>
+    <a href="#notices">Notices</a>
+    <a href="#events">Events</a>
+</nav>
+</header>
+
+<main class="dashboard-container">
+
+    <section class="welcome-card">
+        <div>
+            <span class="welcome-label">STUDENT PORTAL</span>
+            <h1>Welcome, {{ request.user.username }}!</h1>
+            <p>
+                Welcome to your CSE Department dashboard.
+                Stay updated with department announcements and academic events.
+            </p>
+        </div>
+
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="logout-button" type="submit">Logout</button>
+        </form>
+    </section>
+
+    <section>
+        <div class="section-heading">
+            <h2>Your Dashboard</h2>
+            <p>Quick access to learning resources and department updates.</p>
+        </div>
+        <div class="dashboard-grid" style="margin-bottom: 20px;">
+    <article class="dashboard-card">
+        <div class="card-icon">📢</div>
+        <h3>Total Notices</h3>
+        <p style="font-size: 28px; font-weight: bold; color: #1d4ed8;">
+            {{ total_notices }}
+        </p>
+        <p>Department announcements published.</p>
+    </article>
+
+    <article class="dashboard-card">
+        <div class="card-icon">📅</div>
+        <h3>Upcoming Events</h3>
+        <p style="font-size: 28px; font-weight: bold; color: #1d4ed8;">
+            {{ upcoming_events_count }}
+        </p>
+        <p>Events scheduled for today or later.</p>
+    </article>
+
+    <article class="dashboard-card">
+        <div class="card-icon">👤</div>
+        <h3>Student Account</h3>
+        <p style="font-size: 18px; font-weight: bold; color: #15803d;">
+            Active
+        </p>
+        <p>Logged in as {{ request.user.username }}.</p>
+    </article>
+</div>
+
+        <div class="dashboard-grid">
+            <article class="dashboard-card">
+                <div class="card-icon">💻</div>
+                <h3>Learning & Skills</h3>
+                <p>
+                    Continue improving your programming, database
+                    and web development skills.
+                </p>
+            </article>
+
+            <article class="dashboard-card">
+                <div class="card-icon">🚀</div>
+                <h3>Projects & Innovation</h3>
+                <p>
+                    Apply your knowledge through practical projects
+                    and problem-solving activities.
+                </p>
+            </article>
+
+            <article class="dashboard-card">
+                <div class="card-icon">📢</div>
+                <h3>Department Updates</h3>
+                <p>
+                    Read the latest notices and check upcoming
+                    events published by the department.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section id="notices">
+        <div class="section-heading">
+            <h2>Latest Notices</h2>
+            <p>Important announcements from the department.</p>
+        </div>
+
+        <div class="dashboard-list">
+            {% for notice in notices %}
+                <article class="dashboard-item">
+                    <span class="item-date">
+                        {{ notice.created_at|date:"d M Y" }}
+                    </span>
+                    <h3>{{ notice.title }}</h3>
+                    <p>{{ notice.description|linebreaksbr }}</p>
+                </article>
+            {% empty %}
+                <div class="empty-state">
+                    No notices are available at the moment.
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="events">
+        <div class="section-heading">
+            <h2>Department Events</h2>
+            <p>Workshops, seminars and other academic activities.</p>
+        </div>
+
+        <div class="dashboard-list">
+            {% for event in events %}
+                <article class="dashboard-item">
+                    <span class="item-date">
+                        {{ event.event_date|date:"d M Y" }}
+                    </span>
+                    <h3>{{ event.title }}</h3>
+                    <p>{{ event.description|linebreaksbr }}</p>
+
+                    {% if event.venue %}
+                        <p><strong>Venue:</strong> {{ event.venue }}</p>
+                    {% endif %}
+                </article>
+            {% empty %}
+                <div class="empty-state">
+                    No events have been announced yet.
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+</main>
+
+<footer class="dashboard-footer">
+    <p>
+        © {% now "Y" %} Department of Computer Science & Engineering,
+        Mewar University.
+    </p>
+    <p>Student Academic Information Portal</p>
+</footer>
+
+</body>
+</html>

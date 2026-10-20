@@ -1,0 +1,84 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration | CSE Department</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <style>
+        .auth-container {
+            max-width: 480px;
+            margin: 70px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+        }
+        .auth-container h1 { margin-bottom: 10px; color: #0f172a; }
+        .auth-container p { color: #64748b; margin-bottom: 20px; }
+        .auth-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        .auth-container button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #0f172a;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .auth-container button:hover { background: #0284c7; }
+        .auth-container a { color: #0284c7; }
+        .form-errors { color: #dc2626; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">CSE<span>.</span></div>
+        <nav><a href="/">Home</a> <a href="/login/">Student Login</a></nav>
+    </header>
+
+    <main class="auth-container">
+        <h1>Create Student Account</h1>
+        <p>Register to access the CSE student portal.</p>
+
+        {% if form.errors %}
+            <div class="form-errors">
+                Please correct the errors below.
+                {{ form.errors }}
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="{{ form.username.id_for_label }}">Username</label>
+            {{ form.username }}
+            {{ form.username.help_text }}
+
+            <label for="{{ form.password1.id_for_label }}">Password</label>
+            {{ form.password1 }}
+            {{ form.password1.help_text }}
+
+            <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+            {{ form.password2 }}
+            {{ form.password2.help_text }}
+
+            <button type="submit">Create Account</button>
+        </form>
+
+        <p style="margin-top: 20px;">
+            Already registered? <a href="/login/">Login here</a>
+        </p>
+    </main>
+</body>
+</html>

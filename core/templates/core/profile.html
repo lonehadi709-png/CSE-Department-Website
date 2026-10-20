@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile | CSE Department</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 15px;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px #00000012;
+        }
+
+        h1 {
+            color: #12304a;
+        }
+
+        .detail {
+            padding: 14px;
+            margin: 12px 0;
+            background: #f8fafc;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #475569;
+        }
+
+        .value {
+            margin-top: 6px;
+            color: #12304a;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #087ea4;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .back {
+            background: #475569;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Student Profile</h1>
+        <p>Welcome to your CSE Department student profile.</p>
+
+        <div class="detail">
+            <div class="label">Username</div>
+            <div class="value">{{ user.username }}</div>
+        </div>
+
+        <div class="detail">
+            <div class="label">First Name</div>
+            <div class="value">{{ user.first_name|default:"Not provided" }}</div>
+        </div>
+
+        <div class="detail">
+            <div class="label">Last Name</div>
+            <div class="value">{{ user.last_name|default:"Not provided" }}</div>
+        </div>
+
+        <div class="detail">
+            <div class="label">Email Address</div>
+            <div class="value">{{ user.email|default:"Not provided" }}</div>
+        </div>
+
+        <a class="button" href="{% url 'edit_profile' %}">Edit Profile</a>
+        <a class="button back" href="{% url 'dashboard' %}">Dashboard</a>
+    </div>
+</body>
+</html>

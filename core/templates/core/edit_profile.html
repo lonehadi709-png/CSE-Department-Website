@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile | CSE Department</title>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 30px 15px;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: 30px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px #00000012;
+        }
+
+        h1 { color: #12304a; }
+
+        label {
+            display: block;
+            margin: 16px 0 6px;
+            font-weight: bold;
+        }
+
+        input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #12304a;
+    font-size: 15px;
+
+        }
+
+        button, .back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 6px;
+            background: #087ea4;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .back { background: #475569; }
+
+        .errors { color: #b91c1c; }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Edit Profile</h1>
+        <p>Update your student account details.</p>
+
+       
+<form method="post">
+    {% csrf_token %}
+
+    <div class="field">
+        <label for="id_username">Username</label>
+        <input type="text" name="username" id="id_username"
+               value="{{ form.username.value|default:'' }}" required>
+        {% for error in form.username.errors %}
+            <p class="errors">{{ error }}</p>
+        {% endfor %}
+    </div>
+
+    <div class="field">
+        <label for="id_first_name">First Name</label>
+        <input type="text" name="first_name" id="id_first_name"
+               value="{{ form.first_name.value|default:'' }}">
+        {% for error in form.first_name.errors %}
+            <p class="errors">{{ error }}</p>
+        {% endfor %}
+    </div>
+
+    <div class="field">
+        <label for="id_last_name">Last Name</label>
+        <input type="text" name="last_name" id="id_last_name"
+               value="{{ form.last_name.value|default:'' }}">
+        {% for error in form.last_name.errors %}
+            <p class="errors">{{ error }}</p>
+        {% endfor %}
+    </div>
+
+    <div class="field">
+        <label for="id_email">Email Address</label>
+        <input type="email" name="email" id="id_email"
+               value="{{ form.email.value|default:'' }}">
+        {% for error in form.email.errors %}
+            <p class="errors">{{ error }}</p>
+        {% endfor %}
+    </div>
+
+    <button type="submit">Save Changes</button>
+    <a class="back" href="{% url 'profile' %}">Cancel</a>
+</form>
+
+    </div>
+</body>
+</html>

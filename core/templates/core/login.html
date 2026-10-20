@@ -1,0 +1,80 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login | CSE Department</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <style>
+        .auth-container {
+            max-width: 450px;
+            margin: 70px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+        }
+        .auth-container h1 { margin-bottom: 10px; color: #0f172a; }
+        .auth-container p { color: #64748b; margin-bottom: 22px; }
+        .auth-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        .auth-container button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #0f172a;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .auth-container button:hover { background: #0284c7; }
+        .auth-container a { color: #0284c7; }
+        .form-errors { color: #dc2626; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">CSE<span>.</span></div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/register/">Register</a>
+        </nav>
+    </header>
+
+    <main class="auth-container">
+        <h1>Student Login</h1>
+        <p>Login to access your CSE student dashboard.</p>
+
+        {% if form.errors %}
+            <div class="form-errors">
+                Username or password is incorrect. Please try again.
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="{{ form.username.id_for_label }}">Username</label>
+            {{ form.username }}
+
+            <label for="{{ form.password.id_for_label }}">Password</label>
+            {{ form.password }}
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p style="margin-top: 20px;">
+            Don't have an account? <a href="/register/">Register here</a>
+        </p>
+    </main>
+</body>
+</html>
