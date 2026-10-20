@@ -100,3 +100,15 @@ Developed as an academic project to demonstrate Django web development, database
 **Abdul Hadi**
 
 GitHub: [@lonehadi709-png](https://github.com/lonehadi709-png)
+
+## Website Screenshots
+
+### 1. Homepage
+![CSE Department Homepage](screenshots/01_Homepage.png)
+
+### 2. Notices and Events
+![Notices and Events](screenshots/02_notices_events.png)
+
+### 3. Admin Panel
+![Django Admin Panel](screenshots/03_admin_panel.png)
+
