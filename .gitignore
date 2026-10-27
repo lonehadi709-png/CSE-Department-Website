@@ -18,3 +18,8 @@ db.sqlite3-journal
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Django generated files
+/staticfiles/
+__pycache__/
+*.py[cod]
